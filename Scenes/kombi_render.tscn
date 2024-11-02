@@ -1,0 +1,11 @@
+[gd_scene load_steps=3 format=3 uid="uid://xgp087rsvcxd"]
+
+[ext_resource type="Texture2D" uid="uid://b5qugsip47lly" path="res://Images/sprites2.png" id="1_2erae"]
+[ext_resource type="Script" path="res://Scripts/kombi_sprites.gd" id="2_6jhf7"]
+
+[node name="Sprite2D" type="Sprite2D"]
+self_modulate = Color(1, 1, 1, 0)
+texture = ExtResource("1_2erae")
+hframes = 19
+script = ExtResource("2_6jhf7")
+show_sprites = true
