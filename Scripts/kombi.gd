@@ -8,27 +8,38 @@ var steering_angle = 15
 
 var steer_direction
 
+var grounded: bool = true
+var gravity = 180
+
 func _physics_process(delta):
+	var input = Vector2.ZERO
+	
+	if grounded:		
+		input.x = Input.get_action_strength("ui_right") - Input.get_action_strength("ui_left")
+		input.y = Input.get_action_strength("ui_down") - Input.get_action_strength("ui_up")
+		
+		if Input.get_action_strength("ui_paste"):
+			grounded = false
+	else:
+		input.y += gravity*delta
+		$".".rotation += 0.2
+
+	velocity = lerp(velocity, input*SPEED, ACCELARATION*delta)	
+	move_and_slide()
+	
+	if input != Vector2.ZERO:
+		$Sprite2D.dam_rotation(velocity.angle()-deg_to_rad(-90))
+		$GPUParticles2D.rotation = (velocity.angle()-deg_to_rad(-90))
+		if grounded:
+			$GPUParticles2D.emitting = true
+		else:
+			$GPUParticles2D.emitting = false
+	else:
+		$GPUParticles2D.emitting = false
 	#get_input()
 	#calculate_steering(delta)
 	#move_and_slide()
 	
-	var input = Vector2.ZERO
-	
-	input.x = Input.get_action_strength("ui_right") - Input.get_action_strength("ui_left")
-	input.y = Input.get_action_strength("ui_down") - Input.get_action_strength("ui_up")
-	
-	velocity = lerp(velocity, input*SPEED, ACCELARATION*delta)
-	
-	move_and_slide()
-	
-	if input != Vector2.ZERO:
-		$GPUParticles2D.emitting = true
-		$Sprite2D.dam_rotation(velocity.angle()-deg_to_rad(-90))
-		$GPUParticles2D.rotation = (velocity.angle()-deg_to_rad(-90))
-	else:
-		$GPUParticles2D.emitting = false
-
 #func get_input():
 	#var turn = 0
 	#

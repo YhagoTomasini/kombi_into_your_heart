@@ -1,6 +1,6 @@
 [gd_scene load_steps=5 format=3 uid="uid://c4j8i1uxrchrm"]
 
-[ext_resource type="Script" path="res://Scenes/kombi.gd" id="1_8i674"]
+[ext_resource type="Script" path="res://Scripts/kombi.gd" id="1_8i674"]
 [ext_resource type="PackedScene" uid="uid://xgp087rsvcxd" path="res://Scenes/kombi_render.tscn" id="1_owjbu"]
 
 [sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_ry86f"]

@@ -1,0 +1,16 @@
+[gd_scene load_steps=3 format=3 uid="uid://resmsakctror"]
+
+[sub_resource type="CanvasTexture" id="CanvasTexture_eg823"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_81qx3"]
+size = Vector2(32, 32)
+
+[node name="chao" type="Area2D"]
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+scale = Vector2(32, 32)
+texture = SubResource("CanvasTexture_eg823")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(16, 16)
+shape = SubResource("RectangleShape2D_81qx3")

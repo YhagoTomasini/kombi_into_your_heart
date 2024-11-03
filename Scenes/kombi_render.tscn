@@ -8,4 +8,3 @@ self_modulate = Color(1, 1, 1, 0)
 texture = ExtResource("1_2erae")
 hframes = 19
 script = ExtResource("2_6jhf7")
-show_sprites = true
