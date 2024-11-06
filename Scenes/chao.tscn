@@ -1,16 +1,23 @@
-[gd_scene load_steps=3 format=3 uid="uid://resmsakctror"]
+[gd_scene load_steps=4 format=3 uid="uid://resmsakctror"]
 
-[sub_resource type="CanvasTexture" id="CanvasTexture_eg823"]
+[ext_resource type="Script" path="res://Scripts/chao.gd" id="1_ewo5d"]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_81qx3"]
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_lypnj"]
 size = Vector2(32, 32)
 
-[node name="chao" type="Area2D"]
+[sub_resource type="CanvasTexture" id="CanvasTexture_0jyvx"]
 
-[node name="Sprite2D" type="Sprite2D" parent="."]
-scale = Vector2(32, 32)
-texture = SubResource("CanvasTexture_eg823")
+[node name="Chao" type="Area2D"]
+collision_layer = 2
+collision_mask = 6
+script = ExtResource("1_ewo5d")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(16, 16)
-shape = SubResource("RectangleShape2D_81qx3")
+shape = SubResource("RectangleShape2D_lypnj")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+scale = Vector2(32, 32)
+texture = SubResource("CanvasTexture_0jyvx")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]

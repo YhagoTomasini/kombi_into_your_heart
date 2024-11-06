@@ -9,10 +9,11 @@ var steering_angle = 15
 var steer_direction
 
 var grounded: bool = true
-var gravity = 180
+var gravity = 1
+
+var input = Vector2.ZERO
 
 func _physics_process(delta):
-	var input = Vector2.ZERO
 	
 	if grounded:		
 		input.x = Input.get_action_strength("ui_right") - Input.get_action_strength("ui_left")
@@ -22,13 +23,21 @@ func _physics_process(delta):
 			grounded = false
 	else:
 		input.y += gravity*delta
-		$".".rotation += 0.2
+		rotation += 0.1
 
 	velocity = lerp(velocity, input*SPEED, ACCELARATION*delta)	
 	move_and_slide()
+	#
+	#for i in range(get_slide_collision_count()):
+		#var collision = get_slide_collision(i)
+		#if collision and collision.collision:
+			#if collision.collision.has_method("Colidido"):
+				#collision.collision.Colidido(collision, self)
+
 	
+	$Sprite2D.dam_rotation(velocity.angle()-deg_to_rad(-90))
+
 	if input != Vector2.ZERO:
-		$Sprite2D.dam_rotation(velocity.angle()-deg_to_rad(-90))
 		$GPUParticles2D.rotation = (velocity.angle()-deg_to_rad(-90))
 		if grounded:
 			$GPUParticles2D.emitting = true
