@@ -8,16 +8,24 @@ var trigado: bool = false
 var gravidade = 200
 
 var cair: bool = false
+var scale_factor = 1
 #var corpo = Vector2.ZERO
 
+#func _ready():
+	#for area in get_children():
+		#if area is Area2D:
+			#area.add_to_group("areas")
+			
 func _process(delta):
 	if cair:
 		position.y += gravidade*delta
+		scale_factor -= 1.5 * delta
+		scale = Vector2(scale_factor, scale_factor)
+	
+	if scale_factor <= 0:
+		queue_free()
 
 func _on_body_entered(body: Node2D) -> void:
 	if body.name == "Kombi":
-			print("colidiu")
-			await get_tree().create_timer(time_to_fall).timeout
-			cair = true
-			await get_tree().create_timer(time_to_delete).timeout
-			queue_free()
+		await get_tree().create_timer(time_to_fall).timeout
+		cair = true

@@ -1,18 +1,22 @@
-[gd_scene load_steps=3 format=3 uid="uid://yo3piv84tqlk"]
+[gd_scene load_steps=5 format=4 uid="uid://yo3piv84tqlk"]
 
 [ext_resource type="PackedScene" uid="uid://resmsakctror" path="res://Scenes/chao.tscn" id="1_wyb02"]
 [ext_resource type="PackedScene" uid="uid://c4j8i1uxrchrm" path="res://Scenes/kombi.tscn" id="2_43l1t"]
 
+[sub_resource type="TileSetScenesCollectionSource" id="TileSetScenesCollectionSource_e1p1d"]
+scenes/1/scene = ExtResource("1_wyb02")
+
+[sub_resource type="TileSet" id="TileSet_xpffk"]
+tile_size = Vector2i(32, 32)
+sources/0 = SubResource("TileSetScenesCollectionSource_e1p1d")
+
 [node name="cenaJogo" type="Node2D"]
 
-[node name="Chao" parent="." instance=ExtResource("1_wyb02")]
-position = Vector2(93, 80)
-
-[node name="Chao2" parent="." instance=ExtResource("1_wyb02")]
-position = Vector2(126, 80)
-
-[node name="Chao3" parent="." instance=ExtResource("1_wyb02")]
-position = Vector2(159, 80)
+[node name="TileChao" type="TileMapLayer" parent="."]
+use_parent_material = true
+tile_map_data = PackedByteArray("AAAAAAAAAAAAAAAAAQABAAAAAAAAAAAAAQACAAAAAAAAAAAAAQADAAAAAAAAAAAAAQAEAAAAAAAAAAAAAQAFAAAAAAAAAAAAAQAGAAAAAAAAAAAAAQAHAAAAAAAAAAAAAQAIAAAAAAAAAAAAAQAAAAEAAAAAAAAAAQABAAEAAAAAAAAAAQACAAEAAAAAAAAAAQADAAEAAAAAAAAAAQAEAAEAAAAAAAAAAQAFAAEAAAAAAAAAAQAGAAEAAAAAAAAAAQAHAAEAAAAAAAAAAQAIAAEAAAAAAAAAAQAIAAIAAAAAAAAAAQAHAAIAAAAAAAAAAQAGAAIAAAAAAAAAAQABAAIAAAAAAAAAAQAAAAIAAAAAAAAAAQACAAIAAAAAAAAAAQAAAAMAAAAAAAAAAQABAAMAAAAAAAAAAQACAAMAAAAAAAAAAQA=")
+tile_set = SubResource("TileSet_xpffk")
+rendering_quadrant_size = 32
 
 [node name="Kombi" parent="." instance=ExtResource("2_43l1t")]
 collision_mask = 15
