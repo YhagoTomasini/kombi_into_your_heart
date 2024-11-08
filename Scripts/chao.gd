@@ -28,5 +28,10 @@ func _process(delta):
 func _on_body_entered(body: Node2D) -> void:
 	if body.name == "Kombi":
 		print("colidiu carro")
+		body.taChao()
 		await get_tree().create_timer(time_to_fall).timeout
 		cair = true
+
+func _on_body_exited(body: Node2D) -> void:
+	if body.name == "Kombi":
+		body.saiuChao()

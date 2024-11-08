@@ -11,6 +11,7 @@ var steer_direction
 var grounded: bool = true
 var gravity = 200
 var scale_factor = 1.0
+var time_to_fall = 0.1
 
 var input = Vector2.ZERO
 
@@ -46,14 +47,19 @@ func _physics_process(delta):
 			$GPUParticles2D.emitting = false
 	else:
 		$GPUParticles2D.emitting = false
-
-
-func _on_area_2d_area_entered(area: Area2D) -> void:
-	if area.name == "Chao":
-		print("ta no chao")
-
-
-func _on_area_2d_area_exited(area: Area2D) -> void:
-	if area.name == "TileChao":
-		print("saiu do chao")
-		grounded = false
+		
+func taChao():
+	grounded = true
+	
+func saiuChao():
+	await get_tree().create_timer(time_to_fall).timeout
+	grounded = false
+#func _on_area_2d_area_entered(area: Area2D) -> void:
+	#if area.name == "Chao":
+		#print("ta no chao")
+#
+#
+#func _on_area_2d_area_exited(area: Area2D) -> void:
+	#if area.name == "TileChao":
+		#print("saiu do chao")
+		#grounded = false
