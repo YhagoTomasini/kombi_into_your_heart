@@ -9,7 +9,7 @@ var steering_angle = 15
 var steer_direction
 
 var grounded: bool = true
-var gravity = 1
+var gravity = 200
 var scale_factor = 1.0
 
 var input = Vector2.ZERO
@@ -23,7 +23,9 @@ func _physics_process(delta):
 		if Input.get_action_strength("ui_paste"):
 			grounded = false
 	else:
-		input.y += gravity*delta
+		collision_layer = 1
+		z_index = 1
+		position.y += gravity*delta
 		scale_factor -= 1.5 * delta
 		scale = Vector2(scale_factor, scale_factor)
 		#rotation += 0.1
@@ -46,7 +48,12 @@ func _physics_process(delta):
 		$GPUParticles2D.emitting = false
 
 
+func _on_area_2d_area_entered(area: Area2D) -> void:
+	if area.name == "Chao":
+		print("ta no chao")
 
-#func _on_area_entered(area):
-	#if area.is_in_group("areas"):
-		#print("Colidiu com uma área:", area.name)
+
+func _on_area_2d_area_exited(area: Area2D) -> void:
+	if area.name == "TileChao":
+		print("saiu do chao")
+		grounded = false
