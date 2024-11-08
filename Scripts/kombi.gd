@@ -11,7 +11,7 @@ var steer_direction
 var grounded: bool = true
 var gravity = 200
 var scale_factor = 1.0
-var time_to_fall = 0.1
+var time_to_fall = 01
 
 var input = Vector2.ZERO
 
@@ -52,7 +52,7 @@ func taChao():
 	grounded = true
 	
 func saiuChao():
-	await get_tree().create_timer(time_to_fall).timeout
+	#await get_tree().create_timer(time_to_fall).timeout
 	grounded = false
 #func _on_area_2d_area_entered(area: Area2D) -> void:
 	#if area.name == "Chao":

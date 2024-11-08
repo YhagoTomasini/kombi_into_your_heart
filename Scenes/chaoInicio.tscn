@@ -1,0 +1,25 @@
+[gd_scene load_steps=3 format=3 uid="uid://dcbklygux6qew"]
+
+[sub_resource type="CanvasTexture" id="CanvasTexture_0jyvx"]
+specular_color = Color(1, 0, 1, 1)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_lypnj"]
+size = Vector2(16, 16)
+
+[node name="Chao" type="Area2D"]
+visibility_layer = 2
+position = Vector2(-8, -8)
+collision_layer = 2
+collision_mask = 6
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+scale = Vector2(16, 16)
+texture = SubResource("CanvasTexture_0jyvx")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(8, 8)
+shape = SubResource("RectangleShape2D_lypnj")
+debug_color = Color(0.910114, 0.0760433, 0.700007, 0.42)
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
+[connection signal="body_exited" from="." to="." method="_on_body_exited"]
