@@ -40,7 +40,6 @@ func _physics_process(delta):
 		
 	velocity = lerp(velocity, input*SPEED, ACCELARATION*delta)
 	$Sprite2D.dam_rotation(velocity.angle()-deg_to_rad(-90))
-	
 	move_and_slide()
 	
 	if input != Vector2.ZERO:

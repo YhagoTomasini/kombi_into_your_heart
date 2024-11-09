@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cn7nc1esp4c87"
-path="res://.godot/imported/sprite sheet kombi.png-6acaab5a2e21229edd49cea3348cf65f.ctex"
+uid="uid://biispa3bs2j33"
+path="res://.godot/imported/kiyh.png-26b19d2f139815eff9c6bcb61c73fb4f.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Images/sprite sheet kombi.png"
-dest_files=["res://.godot/imported/sprite sheet kombi.png-6acaab5a2e21229edd49cea3348cf65f.ctex"]
+source_file="res://Images/kiyh.png"
+dest_files=["res://.godot/imported/kiyh.png-26b19d2f139815eff9c6bcb61c73fb4f.ctex"]
 
 [params]
 
