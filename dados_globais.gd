@@ -1,5 +1,4 @@
 extends Node
 
-var score
-
-var highScores
+var score = 0
+var highScores = 0

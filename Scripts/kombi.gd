@@ -27,6 +27,7 @@ func _physics_process(delta):
 			
 	elif !grounded:
 		print("caindo ahhh")
+		#$Camera2D.enabled = false
 		collision_layer = 1
 		z_index = 1
 		position.y += gravity*delta
