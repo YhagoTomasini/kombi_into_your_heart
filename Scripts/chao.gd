@@ -4,18 +4,14 @@ var caindo: bool = false
 var trigado: bool = false
 
 @export var time_to_fall : float = 0.5
-@export var time_to_delete : float = 1.0
 var gravidade = 200
+
+@onready var pInicial: Vector2 = position
+@onready var cenaDeath = load("res://Scenes/deathCollider.tscn")
 
 var cair: bool = false
 var scale_factor = 1
-#var corpo = Vector2.ZERO
-
-#func _ready():
-	#for area in get_children():
-		#if area is Area2D:
-			#area.add_to_group("areas")
-			
+	
 func _process(delta):
 	if cair:
 		position.y += gravidade*delta
@@ -25,13 +21,19 @@ func _process(delta):
 	if scale_factor <= 0:
 		queue_free()
 
+func istanceDeath():
+	var deathCo = cenaDeath.instantiate()
+	deathCo.position = pInicial
+	get_parent().add_child(deathCo) 
+
 func _on_body_entered(body: Node2D) -> void:
 	if body.name == "Kombi":
 		print("colidiu carro")
-		body.taChao()
 		await get_tree().create_timer(time_to_fall).timeout
 		cair = true
+		await get_tree().create_timer(time_to_fall/2).timeout
+		istanceDeath()
 
-func _on_body_exited(body: Node2D) -> void:
-	if body.name == "Kombi":
-		body.saiuChao()
+#func _on_body_exited(body: Node2D) -> void:
+	#if body.name == "Kombi":
+		#body.saiuChao()

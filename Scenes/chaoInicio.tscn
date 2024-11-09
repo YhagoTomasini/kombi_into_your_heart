@@ -7,12 +7,13 @@ specular_color = Color(1, 0, 1, 1)
 size = Vector2(16, 16)
 
 [node name="Chao" type="Area2D"]
-visibility_layer = 2
+z_index = 2
 position = Vector2(-8, -8)
 collision_layer = 2
 collision_mask = 6
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
+modulate = Color(0.658824, 0.713726, 0.811765, 1)
 scale = Vector2(16, 16)
 texture = SubResource("CanvasTexture_0jyvx")
 
