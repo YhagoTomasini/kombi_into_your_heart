@@ -15,7 +15,7 @@ scale_max = 3.0
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_3vbe7"]
 radius = 3.0
-height = 8.0
+height = 6.0
 
 [node name="Kombi" type="CharacterBody2D"]
 visibility_layer = 4
