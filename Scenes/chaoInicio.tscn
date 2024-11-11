@@ -1,4 +1,6 @@
-[gd_scene load_steps=3 format=3 uid="uid://dcbklygux6qew"]
+[gd_scene load_steps=4 format=3 uid="uid://dcbklygux6qew"]
+
+[ext_resource type="PackedScene" uid="uid://cdg4h07mi565s" path="res://Scenes/chao_render.tscn" id="1_u2rmi"]
 
 [sub_resource type="CanvasTexture" id="CanvasTexture_0jyvx"]
 specular_color = Color(1, 0, 1, 1)
@@ -13,9 +15,12 @@ collision_layer = 2
 collision_mask = 6
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
+visible = false
 modulate = Color(0.658824, 0.713726, 0.811765, 1)
 scale = Vector2(16, 16)
 texture = SubResource("CanvasTexture_0jyvx")
+
+[node name="chao_render" parent="." instance=ExtResource("1_u2rmi")]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(8, 8)

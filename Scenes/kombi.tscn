@@ -14,8 +14,8 @@ gravity = Vector3(0, -45, 0)
 scale_max = 3.0
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_3vbe7"]
-radius = 9.0
-height = 32.0
+radius = 3.0
+height = 8.0
 
 [node name="Kombi" type="CharacterBody2D"]
 visibility_layer = 4

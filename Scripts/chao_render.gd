@@ -5,6 +5,8 @@ extends Sprite2D
 @export var rotate_sprites: bool = false
 
 var distLayers: int = 1
+
+#@onready var nRandom = randi_range(0, 3)
 	
 func set_show_sprites(_show_sprites):
 	show_sprites = _show_sprites
@@ -52,6 +54,10 @@ func render_sprites():
 		next_sprite.hframes = hframes
 		next_sprite.frame = i
 		next_sprite.position.y = 16-(i/2)*distLayers
-		next_sprite.flip_h = true
+		
+		var nRandom = randi_range(0, 3)
+		next_sprite.rotation_degrees = 90 * nRandom
+		
+		#next_sprite.flip_h = true
 		
 		add_child(next_sprite)

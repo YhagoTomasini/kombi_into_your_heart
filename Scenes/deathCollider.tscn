@@ -15,7 +15,6 @@ collision_mask = 6
 script = ExtResource("1_lkafq")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-visible = false
 modulate = Color(1, 0.566646, 0.992646, 0.533333)
 scale = Vector2(16, 16)
 texture = SubResource("CanvasTexture_0jyvx")

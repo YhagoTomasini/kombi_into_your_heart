@@ -15,7 +15,7 @@ var scale_factor = 1
 func _process(delta):
 	if cair:
 		position.y += gravidade*delta
-		scale_factor -= 1.5 * delta
+		scale_factor -= 2 * delta
 		scale = Vector2(scale_factor, scale_factor)
 	
 	if scale_factor <= 0:

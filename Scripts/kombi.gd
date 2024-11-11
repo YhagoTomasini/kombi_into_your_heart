@@ -31,7 +31,7 @@ func _physics_process(delta):
 		collision_layer = 1
 		z_index = 1
 		position.y += gravity*delta
-		scale_factor -= 1.5 * delta
+		scale_factor -= 2 * delta
 		scale = Vector2(scale_factor, scale_factor)
 		#rotation += 0.1
 		
