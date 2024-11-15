@@ -45,6 +45,7 @@ shape = SubResource("CapsuleShape2D_3vbe7")
 shape = SubResource("CapsuleShape2D_3vbe7")
 
 [node name="Camera2D" type="Camera2D" parent="."]
+process_callback = 0
 position_smoothing_enabled = true
 rotation_smoothing_enabled = true
 

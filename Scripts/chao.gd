@@ -31,6 +31,7 @@ func _on_body_entered(body: Node2D) -> void:
 		print("colidiu carro")
 		await get_tree().create_timer(time_to_fall).timeout
 		cair = true
+		z_index = 0
 		await get_tree().create_timer(time_to_fall/2).timeout
 		istanceDeath()
 

@@ -1,11 +1,19 @@
-[gd_scene load_steps=3 format=3 uid="uid://b4wt0wcds2g60"]
+[gd_scene load_steps=4 format=3 uid="uid://b4wt0wcds2g60"]
 
-[ext_resource type="Texture2D" uid="uid://bkk7s3tyeofxt" path="res://Images/heart2.png" id="1_2otev"]
+[ext_resource type="Texture2D" uid="uid://uqme4rqshkvk" path="res://Images/heart5.png" id="1_e6u6s"]
 [ext_resource type="Script" path="res://heart_render.gd" id="2_51se6"]
+
+[sub_resource type="CanvasTexture" id="CanvasTexture_iaumj"]
 
 [node name="Heart_render" type="Sprite2D"]
 self_modulate = Color(1, 1, 1, 0)
-texture = ExtResource("1_2otev")
+texture = ExtResource("1_e6u6s")
 hframes = 13
 script = ExtResource("2_51se6")
 show_sprites = true
+rotate_sprites = true
+
+[node name="PointLight2D" type="PointLight2D" parent="."]
+rotation = 240.553
+scale = Vector2(20.495, 20.495)
+texture = SubResource("CanvasTexture_iaumj")
