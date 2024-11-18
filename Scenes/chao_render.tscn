@@ -1,12 +1,24 @@
-[gd_scene load_steps=3 format=3 uid="uid://cdg4h07mi565s"]
+[gd_scene load_steps=6 format=3 uid="uid://cdg4h07mi565s"]
 
+[ext_resource type="Texture2D" uid="uid://biueu8tr10wxe" path="res://Images/kiyh3.png" id="1_8xrfv"]
 [ext_resource type="Texture2D" uid="uid://81ftt52yxrix" path="res://Images/kiyh2.png" id="1_aykoi"]
+[ext_resource type="Texture2D" uid="uid://biispa3bs2j33" path="res://Images/kiyh.png" id="2_dwpv7"]
 [ext_resource type="Script" path="res://Scripts/chao_render.gd" id="2_q8b0i"]
+
+[sub_resource type="AnimatedTexture" id="AnimatedTexture_yuyju"]
+frames = 3
+pause = true
+frame_0/texture = ExtResource("1_8xrfv")
+frame_0/duration = 0.5
+frame_1/texture = ExtResource("2_dwpv7")
+frame_1/duration = 0.5
+frame_2/texture = ExtResource("1_aykoi")
+frame_2/duration = 0.5
 
 [node name="chao_render" type="Sprite2D"]
 self_modulate = Color(1, 1, 1, 0)
 position = Vector2(8, 8)
-texture = ExtResource("1_aykoi")
+texture = SubResource("AnimatedTexture_yuyju")
 hframes = 32
 script = ExtResource("2_q8b0i")
 show_sprites = true

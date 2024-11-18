@@ -16,7 +16,6 @@ script = ExtResource("1_eod1u")
 
 [node name="Heart_render" parent="." instance=ExtResource("2_5aymm")]
 position = Vector2(0, 6)
-rotate_sprites = true
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 visible = false
