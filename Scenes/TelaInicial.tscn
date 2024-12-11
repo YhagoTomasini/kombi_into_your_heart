@@ -9,7 +9,7 @@
 [sub_resource type="LabelSettings" id="LabelSettings_3w7t3"]
 line_spacing = 0.0
 font = ExtResource("1_yunu7")
-font_size = 25
+font_size = 26
 
 [sub_resource type="LabelSettings" id="LabelSettings_5snq8"]
 line_spacing = 0.0
@@ -19,12 +19,12 @@ font_size = 71
 [sub_resource type="LabelSettings" id="LabelSettings_212s1"]
 line_spacing = 0.0
 font = ExtResource("1_yunu7")
-font_size = 28
+font_size = 26
 
 [sub_resource type="LabelSettings" id="LabelSettings_vdih3"]
 line_spacing = 0.0
 font = ExtResource("1_yunu7")
-font_size = 25
+font_size = 26
 font_color = Color(1, 1, 1, 0)
 outline_size = 4
 outline_color = Color(0.00392157, 0.0862745, 0.152941, 1)
@@ -40,7 +40,7 @@ outline_color = Color(0.00392157, 0.0862745, 0.152941, 1)
 [sub_resource type="LabelSettings" id="LabelSettings_mvhmu"]
 line_spacing = 0.0
 font = ExtResource("1_yunu7")
-font_size = 28
+font_size = 26
 font_color = Color(1, 1, 1, 0)
 outline_size = 4
 outline_color = Color(0.00392157, 0.0862745, 0.152941, 1)
@@ -64,10 +64,10 @@ offset_top = 32.0
 offset_right = 320.0
 offset_bottom = 319.0
 
-[node name="VBoxContainer" type="VBoxContainer" parent="VBoxContainer2"]
+[node name="BoxTitulo" type="VBoxContainer" parent="VBoxContainer2"]
 layout_mode = 2
 
-[node name="Label" type="Label" parent="VBoxContainer2/VBoxContainer"]
+[node name="Label" type="Label" parent="VBoxContainer2/BoxTitulo"]
 layout_mode = 2
 text = "Let me drive my
 "
@@ -75,28 +75,28 @@ label_settings = SubResource("LabelSettings_3w7t3")
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="Label2" type="Label" parent="VBoxContainer2/VBoxContainer"]
+[node name="Label2" type="Label" parent="VBoxContainer2/BoxTitulo"]
 layout_mode = 2
 text = "kombi"
 label_settings = SubResource("LabelSettings_5snq8")
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="Label3" type="Label" parent="VBoxContainer2/VBoxContainer"]
+[node name="Label3" type="Label" parent="VBoxContainer2/BoxTitulo"]
 layout_mode = 2
-text = "into you heart"
+text = "into your heart"
 label_settings = SubResource("LabelSettings_212s1")
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer2"]
+[node name="separacao" type="HBoxContainer" parent="VBoxContainer2"]
 custom_minimum_size = Vector2(0, 32)
 layout_mode = 2
 
-[node name="VBoxContainer2" type="VBoxContainer" parent="VBoxContainer2"]
+[node name="boxbotoes" type="VBoxContainer" parent="VBoxContainer2"]
 layout_mode = 2
 
-[node name="play" type="Button" parent="VBoxContainer2/VBoxContainer2"]
+[node name="play" type="Button" parent="VBoxContainer2/boxbotoes"]
 layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 4
@@ -111,7 +111,7 @@ theme_override_fonts/font = ExtResource("2_vhpyw")
 text = "Play"
 flat = true
 
-[node name="quit" type="Button" parent="VBoxContainer2/VBoxContainer2"]
+[node name="quit" type="Button" parent="VBoxContainer2/boxbotoes"]
 layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 4
@@ -128,20 +128,20 @@ flat = true
 icon_alignment = 1
 
 [node name="Sprite2D" parent="." instance=ExtResource("2_2bds0")]
-position = Vector2(160, 110)
+position = Vector2(160, 104)
 scale = Vector2(3, 3)
 rotate_sprites = true
 
-[node name="VBoxContainer3" type="VBoxContainer" parent="."]
+[node name="BoxtituloLine" type="VBoxContainer" parent="."]
 layout_mode = 2
 offset_top = 32.0
 offset_right = 320.0
 offset_bottom = 159.0
 
-[node name="VBoxContainer" type="VBoxContainer" parent="VBoxContainer3"]
+[node name="VBoxContainer" type="VBoxContainer" parent="BoxtituloLine"]
 layout_mode = 2
 
-[node name="Label" type="Label" parent="VBoxContainer3/VBoxContainer"]
+[node name="Label" type="Label" parent="BoxtituloLine/VBoxContainer"]
 layout_mode = 2
 text = "Let me drive my
 "
@@ -149,19 +149,19 @@ label_settings = SubResource("LabelSettings_vdih3")
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="Label2" type="Label" parent="VBoxContainer3/VBoxContainer"]
+[node name="Label2" type="Label" parent="BoxtituloLine/VBoxContainer"]
 layout_mode = 2
 text = "kombi"
 label_settings = SubResource("LabelSettings_2l3yf")
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="Label3" type="Label" parent="VBoxContainer3/VBoxContainer"]
+[node name="Label3" type="Label" parent="BoxtituloLine/VBoxContainer"]
 layout_mode = 2
-text = "into you heart"
+text = "into your heart"
 label_settings = SubResource("LabelSettings_mvhmu")
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[connection signal="pressed" from="VBoxContainer2/VBoxContainer2/play" to="." method="_on_play_pressed"]
-[connection signal="pressed" from="VBoxContainer2/VBoxContainer2/quit" to="." method="_on_quit_pressed"]
+[connection signal="pressed" from="VBoxContainer2/boxbotoes/play" to="." method="_on_play_pressed"]
+[connection signal="pressed" from="VBoxContainer2/boxbotoes/quit" to="." method="_on_quit_pressed"]

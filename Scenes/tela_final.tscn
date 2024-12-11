@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=3 uid="uid://dc1oje2hor0ya"]
+[gd_scene load_steps=15 format=3 uid="uid://dc1oje2hor0ya"]
 
 [ext_resource type="Script" path="res://Scripts/tela_final.gd" id="1_471ee"]
 [ext_resource type="Texture2D" uid="uid://bndmkckd1qn3w" path="res://Images/Fundo1.png" id="2_mqg12"]
@@ -19,7 +19,22 @@ font_size = 71
 [sub_resource type="LabelSettings" id="LabelSettings_brer4"]
 line_spacing = 0.0
 font = ExtResource("3_tq4lb")
-font_size = 28
+font_size = 12
+
+[sub_resource type="LabelSettings" id="LabelSettings_q1cd8"]
+font = ExtResource("4_1eavq")
+font_size = 22
+font_color = Color(0.360784, 0.964706, 0.290196, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_i4nej"]
+font = ExtResource("4_1eavq")
+font_size = 22
+font_color = Color(0.360784, 0.964706, 0.290196, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_v1uf4"]
+font = ExtResource("4_1eavq")
+font_size = 22
+font_color = Color(0.172549, 0.486275, 0.737255, 1)
 
 [sub_resource type="LabelSettings" id="LabelSettings_fbuu6"]
 line_spacing = 0.0
@@ -61,55 +76,84 @@ texture = ExtResource("2_mqg12")
 
 [node name="VBoxContainer2" type="VBoxContainer" parent="."]
 layout_mode = 0
-offset_top = 32.0
+offset_top = 36.0
 offset_right = 320.0
-offset_bottom = 319.0
+offset_bottom = 323.0
 
-[node name="VBoxContainer" type="VBoxContainer" parent="VBoxContainer2"]
+[node name="BoxTitulo" type="VBoxContainer" parent="VBoxContainer2"]
 layout_mode = 2
 
-[node name="Label" type="Label" parent="VBoxContainer2/VBoxContainer"]
+[node name="Label" type="Label" parent="VBoxContainer2/BoxTitulo"]
 layout_mode = 2
 text = "into your"
 label_settings = SubResource("LabelSettings_lo4f2")
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="Label2" type="Label" parent="VBoxContainer2/VBoxContainer"]
+[node name="Label2" type="Label" parent="VBoxContainer2/BoxTitulo"]
 layout_mode = 2
 text = "heart"
 label_settings = SubResource("LabelSettings_vntnx")
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="Label3" type="Label" parent="VBoxContainer2/VBoxContainer"]
+[node name="Label3" type="Label" parent="VBoxContainer2/BoxTitulo"]
 layout_mode = 2
 label_settings = SubResource("LabelSettings_brer4")
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="HBoxContainer" type="VBoxContainer" parent="VBoxContainer2"]
+[node name="BoxScores" type="VBoxContainer" parent="VBoxContainer2"]
 custom_minimum_size = Vector2(0, 32)
 layout_mode = 2
+size_flags_horizontal = 4
 
-[node name="highScoreValue" type="Label" parent="VBoxContainer2/HBoxContainer"]
-unique_name_in_owner = true
-layout_mode = 2
-text = "0"
-horizontal_alignment = 1
-
-[node name="scoreValue" type="Label" parent="VBoxContainer2/HBoxContainer"]
-unique_name_in_owner = true
-layout_mode = 2
-text = "0"
-horizontal_alignment = 1
-
-[node name="VBoxContainer2" type="VBoxContainer" parent="VBoxContainer2"]
-layout_mode = 2
-
-[node name="replay" type="Button" parent="VBoxContainer2/VBoxContainer2"]
+[node name="HighScoreBox" type="HBoxContainer" parent="VBoxContainer2/BoxScores"]
 layout_mode = 2
 size_flags_horizontal = 4
+
+[node name="highScoreValue" type="Label" parent="VBoxContainer2/BoxScores/HighScoreBox"]
+layout_mode = 2
+text = "high score:"
+label_settings = SubResource("LabelSettings_q1cd8")
+horizontal_alignment = 2
+
+[node name="highScoreValue2" type="Label" parent="VBoxContainer2/BoxScores/HighScoreBox"]
+unique_name_in_owner = true
+layout_mode = 2
+text = "0"
+label_settings = SubResource("LabelSettings_i4nej")
+
+[node name="scoreBox" type="HBoxContainer" parent="VBoxContainer2/BoxScores"]
+custom_minimum_size = Vector2(32, 12)
+layout_mode = 2
+size_flags_horizontal = 4
+
+[node name="scoreValue2" type="Label" parent="VBoxContainer2/BoxScores/scoreBox"]
+layout_mode = 2
+text = "score: 
+"
+label_settings = SubResource("LabelSettings_v1uf4")
+horizontal_alignment = 2
+
+[node name="scoreValue" type="Label" parent="VBoxContainer2/BoxScores/scoreBox"]
+unique_name_in_owner = true
+layout_mode = 2
+text = "0"
+label_settings = SubResource("LabelSettings_v1uf4")
+
+[node name="separacao" type="HBoxContainer" parent="VBoxContainer2"]
+custom_minimum_size = Vector2(32, 12)
+layout_mode = 2
+
+[node name="boxBotoes" type="HBoxContainer" parent="VBoxContainer2"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 2
+
+[node name="replay" type="Button" parent="VBoxContainer2/boxBotoes"]
+layout_mode = 2
+size_flags_horizontal = 0
 size_flags_vertical = 4
 size_flags_stretch_ratio = 0.0
 mouse_default_cursor_shape = 2
@@ -122,7 +166,11 @@ theme_override_fonts/font = ExtResource("4_1eavq")
 text = "Replay"
 flat = true
 
-[node name="menu" type="Button" parent="VBoxContainer2/VBoxContainer2"]
+[node name="HBoxContainer2" type="HBoxContainer" parent="VBoxContainer2/boxBotoes"]
+custom_minimum_size = Vector2(32, 12)
+layout_mode = 2
+
+[node name="menu" type="Button" parent="VBoxContainer2/boxBotoes"]
 layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 4
@@ -142,34 +190,34 @@ icon_alignment = 1
 position = Vector2(160, 120)
 scale = Vector2(6, 6)
 
-[node name="VBoxContainer3" type="VBoxContainer" parent="."]
+[node name="BoxTituloLine" type="VBoxContainer" parent="."]
 layout_mode = 0
-offset_top = 32.0
+offset_top = 36.0
 offset_right = 320.0
-offset_bottom = 159.0
+offset_bottom = 163.0
 
-[node name="VBoxContainer" type="VBoxContainer" parent="VBoxContainer3"]
+[node name="VBoxContainer" type="VBoxContainer" parent="BoxTituloLine"]
 layout_mode = 2
 
-[node name="Label" type="Label" parent="VBoxContainer3/VBoxContainer"]
+[node name="Label" type="Label" parent="BoxTituloLine/VBoxContainer"]
 layout_mode = 2
 text = "into your"
 label_settings = SubResource("LabelSettings_fbuu6")
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="Label2" type="Label" parent="VBoxContainer3/VBoxContainer"]
+[node name="Label2" type="Label" parent="BoxTituloLine/VBoxContainer"]
 layout_mode = 2
 text = "HEART"
 label_settings = SubResource("LabelSettings_i241f")
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="Label3" type="Label" parent="VBoxContainer3/VBoxContainer"]
+[node name="Label3" type="Label" parent="BoxTituloLine/VBoxContainer"]
 layout_mode = 2
 label_settings = SubResource("LabelSettings_sopdx")
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[connection signal="pressed" from="VBoxContainer2/VBoxContainer2/replay" to="." method="_on_replay_pressed"]
-[connection signal="pressed" from="VBoxContainer2/VBoxContainer2/menu" to="." method="_on_menu_pressed"]
+[connection signal="pressed" from="VBoxContainer2/boxBotoes/replay" to="." method="_on_replay_pressed"]
+[connection signal="pressed" from="VBoxContainer2/boxBotoes/menu" to="." method="_on_menu_pressed"]
