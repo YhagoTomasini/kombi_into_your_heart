@@ -1,17 +1,14 @@
 @tool
 extends Sprite2D
 
+@onready var dgCode: Node = get_node("/root/DadosGlobais")
 
 @export var show_sprites: bool = false
 @export var rotate_sprites: bool = false
 
-#var animTex = texture as AnimatedTexture
-
 var animTex: AnimatedTexture
 
 var distLayers: int = 1
-
-#@onready var nRandom = randi_range(0, 3)
 	
 func set_show_sprites(_show_sprites):
 	show_sprites = _show_sprites
@@ -41,19 +38,21 @@ func _physics_process(delta: float) -> void:
 	if rotate_sprites:
 		for sprite in get_children():
 			sprite.rotation += delta
-			
-	#if DadosGlobais.mudarCorChao == 1:
+
+	#if DadosGlobais and DadosGlobais.has("mudarCorChao"):
+		#await get_tree().create_timer(1).timeout
+	#if dgCode.mudarCorChao:
 		#corChao(1)
-		
-		
+		#await get_tree().create_timer(0.1).timeout
+		#dgCode.mudarCorChao = false
 
 func corChao(nCor: int):
 	if texture is AnimatedTexture:
 		animTex = texture as AnimatedTexture
 		animTex.current_frame = nCor
-		await get_tree().create_timer(1).timeout
-		animTex.current_frame = 0
-		DadosGlobais.mudarCorChao = 0
+		#await get_tree().create_timer(1).timeout
+		#animTex.current_frame = 0
+		#DadosGlobais.mudarCorChao = false
 
 func clear_sprites():
 	for sprite in get_children():

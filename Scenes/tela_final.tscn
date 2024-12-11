@@ -1,65 +1,66 @@
-[gd_scene load_steps=12 format=3 uid="uid://cjpv8dke20qa0"]
+[gd_scene load_steps=12 format=3 uid="uid://dc1oje2hor0ya"]
 
-[ext_resource type="Script" path="res://Scripts/tela_inicial.gd" id="1_t4qa8"]
-[ext_resource type="Texture2D" uid="uid://bndmkckd1qn3w" path="res://Images/Fundo1.png" id="1_ur4c6"]
-[ext_resource type="FontFile" uid="uid://bhxjr7kst83bx" path="res://fonts/SaoTorpes.otf" id="1_yunu7"]
-[ext_resource type="PackedScene" uid="uid://xgp087rsvcxd" path="res://Scenes/kombi_render.tscn" id="2_2bds0"]
-[ext_resource type="FontFile" uid="uid://bdkx4uomftex0" path="res://fonts/Orbit-Regular.ttf" id="2_vhpyw"]
+[ext_resource type="Script" path="res://Scripts/tela_final.gd" id="1_471ee"]
+[ext_resource type="Texture2D" uid="uid://bndmkckd1qn3w" path="res://Images/Fundo1.png" id="2_mqg12"]
+[ext_resource type="FontFile" uid="uid://bhxjr7kst83bx" path="res://fonts/SaoTorpes.otf" id="3_tq4lb"]
+[ext_resource type="FontFile" uid="uid://bdkx4uomftex0" path="res://fonts/Orbit-Regular.ttf" id="4_1eavq"]
+[ext_resource type="PackedScene" uid="uid://b4wt0wcds2g60" path="res://Scenes/heart_render.tscn" id="5_60yaj"]
 
-[sub_resource type="LabelSettings" id="LabelSettings_3w7t3"]
+[sub_resource type="LabelSettings" id="LabelSettings_lo4f2"]
 line_spacing = 0.0
-font = ExtResource("1_yunu7")
+font = ExtResource("3_tq4lb")
 font_size = 25
 
-[sub_resource type="LabelSettings" id="LabelSettings_5snq8"]
+[sub_resource type="LabelSettings" id="LabelSettings_vntnx"]
 line_spacing = 0.0
-font = ExtResource("1_yunu7")
+font = ExtResource("3_tq4lb")
 font_size = 71
 
-[sub_resource type="LabelSettings" id="LabelSettings_212s1"]
+[sub_resource type="LabelSettings" id="LabelSettings_brer4"]
 line_spacing = 0.0
-font = ExtResource("1_yunu7")
+font = ExtResource("3_tq4lb")
 font_size = 28
 
-[sub_resource type="LabelSettings" id="LabelSettings_vdih3"]
+[sub_resource type="LabelSettings" id="LabelSettings_fbuu6"]
 line_spacing = 0.0
-font = ExtResource("1_yunu7")
+font = ExtResource("3_tq4lb")
 font_size = 25
 font_color = Color(1, 1, 1, 0)
 outline_size = 4
 outline_color = Color(0.00392157, 0.0862745, 0.152941, 1)
 
-[sub_resource type="LabelSettings" id="LabelSettings_2l3yf"]
+[sub_resource type="LabelSettings" id="LabelSettings_i241f"]
 line_spacing = 0.0
-font = ExtResource("1_yunu7")
+font = ExtResource("3_tq4lb")
 font_size = 71
 font_color = Color(1, 1, 1, 0)
 outline_size = 4
 outline_color = Color(0.00392157, 0.0862745, 0.152941, 1)
 
-[sub_resource type="LabelSettings" id="LabelSettings_mvhmu"]
+[sub_resource type="LabelSettings" id="LabelSettings_sopdx"]
 line_spacing = 0.0
-font = ExtResource("1_yunu7")
+font = ExtResource("3_tq4lb")
 font_size = 28
 font_color = Color(1, 1, 1, 0)
 outline_size = 4
 outline_color = Color(0.00392157, 0.0862745, 0.152941, 1)
 
-[node name="Control" type="Control"]
+[node name="TelaFinal" type="Control"]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-script = ExtResource("1_t4qa8")
+script = ExtResource("1_471ee")
 
 [node name="Sprite2D2" type="Sprite2D" parent="."]
+z_index = -5
 position = Vector2(160, 160)
-texture = ExtResource("1_ur4c6")
+texture = ExtResource("2_mqg12")
 
 [node name="VBoxContainer2" type="VBoxContainer" parent="."]
-layout_mode = 2
+layout_mode = 0
 offset_top = 32.0
 offset_right = 320.0
 offset_bottom = 319.0
@@ -69,34 +70,44 @@ layout_mode = 2
 
 [node name="Label" type="Label" parent="VBoxContainer2/VBoxContainer"]
 layout_mode = 2
-text = "Let me drive my
-"
-label_settings = SubResource("LabelSettings_3w7t3")
+text = "into your"
+label_settings = SubResource("LabelSettings_lo4f2")
 horizontal_alignment = 1
 vertical_alignment = 1
 
 [node name="Label2" type="Label" parent="VBoxContainer2/VBoxContainer"]
 layout_mode = 2
-text = "kombi"
-label_settings = SubResource("LabelSettings_5snq8")
+text = "heart"
+label_settings = SubResource("LabelSettings_vntnx")
 horizontal_alignment = 1
 vertical_alignment = 1
 
 [node name="Label3" type="Label" parent="VBoxContainer2/VBoxContainer"]
 layout_mode = 2
-text = "into you heart"
-label_settings = SubResource("LabelSettings_212s1")
+label_settings = SubResource("LabelSettings_brer4")
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer2"]
+[node name="HBoxContainer" type="VBoxContainer" parent="VBoxContainer2"]
 custom_minimum_size = Vector2(0, 32)
 layout_mode = 2
+
+[node name="highScoreValue" type="Label" parent="VBoxContainer2/HBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+text = "0"
+horizontal_alignment = 1
+
+[node name="scoreValue" type="Label" parent="VBoxContainer2/HBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+text = "0"
+horizontal_alignment = 1
 
 [node name="VBoxContainer2" type="VBoxContainer" parent="VBoxContainer2"]
 layout_mode = 2
 
-[node name="play" type="Button" parent="VBoxContainer2/VBoxContainer2"]
+[node name="replay" type="Button" parent="VBoxContainer2/VBoxContainer2"]
 layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 4
@@ -107,11 +118,11 @@ theme_override_colors/font_hover_color = Color(0.976471, 0.164706, 0.509804, 1)
 theme_override_colors/font_color = Color(0.172549, 0.486275, 0.737255, 1)
 theme_override_colors/font_outline_color = Color(1, 1, 1, 1)
 theme_override_constants/outline_size = 6
-theme_override_fonts/font = ExtResource("2_vhpyw")
-text = "Play"
+theme_override_fonts/font = ExtResource("4_1eavq")
+text = "Replay"
 flat = true
 
-[node name="quit" type="Button" parent="VBoxContainer2/VBoxContainer2"]
+[node name="menu" type="Button" parent="VBoxContainer2/VBoxContainer2"]
 layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 4
@@ -122,18 +133,17 @@ theme_override_colors/font_hover_color = Color(0.976471, 0.164706, 0.509804, 1)
 theme_override_colors/font_color = Color(0.172549, 0.486275, 0.737255, 1)
 theme_override_colors/font_outline_color = Color(1, 1, 1, 1)
 theme_override_constants/outline_size = 6
-theme_override_fonts/font = ExtResource("2_vhpyw")
-text = "Quit"
+theme_override_fonts/font = ExtResource("4_1eavq")
+text = "Menu"
 flat = true
 icon_alignment = 1
 
-[node name="Sprite2D" parent="." instance=ExtResource("2_2bds0")]
-position = Vector2(160, 110)
-scale = Vector2(3, 3)
-rotate_sprites = true
+[node name="Heart_render" parent="." instance=ExtResource("5_60yaj")]
+position = Vector2(160, 120)
+scale = Vector2(6, 6)
 
 [node name="VBoxContainer3" type="VBoxContainer" parent="."]
-layout_mode = 2
+layout_mode = 0
 offset_top = 32.0
 offset_right = 320.0
 offset_bottom = 159.0
@@ -143,25 +153,23 @@ layout_mode = 2
 
 [node name="Label" type="Label" parent="VBoxContainer3/VBoxContainer"]
 layout_mode = 2
-text = "Let me drive my
-"
-label_settings = SubResource("LabelSettings_vdih3")
+text = "into your"
+label_settings = SubResource("LabelSettings_fbuu6")
 horizontal_alignment = 1
 vertical_alignment = 1
 
 [node name="Label2" type="Label" parent="VBoxContainer3/VBoxContainer"]
 layout_mode = 2
-text = "kombi"
-label_settings = SubResource("LabelSettings_2l3yf")
+text = "HEART"
+label_settings = SubResource("LabelSettings_i241f")
 horizontal_alignment = 1
 vertical_alignment = 1
 
 [node name="Label3" type="Label" parent="VBoxContainer3/VBoxContainer"]
 layout_mode = 2
-text = "into you heart"
-label_settings = SubResource("LabelSettings_mvhmu")
+label_settings = SubResource("LabelSettings_sopdx")
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[connection signal="pressed" from="VBoxContainer2/VBoxContainer2/play" to="." method="_on_play_pressed"]
-[connection signal="pressed" from="VBoxContainer2/VBoxContainer2/quit" to="." method="_on_quit_pressed"]
+[connection signal="pressed" from="VBoxContainer2/VBoxContainer2/replay" to="." method="_on_replay_pressed"]
+[connection signal="pressed" from="VBoxContainer2/VBoxContainer2/menu" to="." method="_on_menu_pressed"]

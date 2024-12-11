@@ -33,7 +33,6 @@ randomness = 0.1
 
 [node name="Sprite2D" parent="." instance=ExtResource("1_owjbu")]
 position = Vector2(0, 1)
-rotate_sprites = null
 
 [node name="Area2D" type="Area2D" parent="."]
 collision_layer = 4

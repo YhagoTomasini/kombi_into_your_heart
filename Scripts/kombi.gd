@@ -36,6 +36,7 @@ func _physics_process(delta):
 		#rotation += 0.1
 		
 	if scale_factor <= 0:
+		DadosGlobais.morte()
 		queue_free()
 		
 	velocity = lerp(velocity, input*SPEED, ACCELARATION*delta)

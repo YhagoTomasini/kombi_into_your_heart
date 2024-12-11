@@ -8,6 +8,7 @@ var gravidade = 200
 
 @onready var pInicial: Vector2 = position
 @onready var cenaDeath = load("res://Scenes/deathCollider.tscn")
+@onready var render = $chao_render
 
 var cair: bool = false
 var scale_factor = 1
@@ -33,6 +34,9 @@ func _on_body_entered(body: Node2D) -> void:
 	if DadosGlobais.startBool:
 		if body.name == "Kombi":
 			print("colidiu carro")
+			if DadosGlobais.mudarCorChao:
+				render.corChao(1)
+				
 			await get_tree().create_timer(time_to_fall).timeout
 			cair = true
 			z_index = 0
