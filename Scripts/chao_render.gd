@@ -50,8 +50,8 @@ func corChao(nCor: int):
 	if texture is AnimatedTexture:
 		animTex = texture as AnimatedTexture
 		animTex.current_frame = nCor
-		#await get_tree().create_timer(1).timeout
-		#animTex.current_frame = 0
+		await get_tree().create_timer(0.5).timeout
+		animTex.current_frame = 0
 		#DadosGlobais.mudarCorChao = false
 
 func clear_sprites():

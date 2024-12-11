@@ -13,7 +13,7 @@ var gravidade = 200
 var cair: bool = false
 var scale_factor = 1
 
-
+var tempoCor: bool = true
 	
 func _process(delta):
 	if cair:
@@ -34,8 +34,11 @@ func _on_body_entered(body: Node2D) -> void:
 	if DadosGlobais.startBool:
 		if body.name == "Kombi":
 			print("colidiu carro")
-			if DadosGlobais.mudarCorChao:
+			if DadosGlobais.mudarCorChao and tempoCor:
 				render.corChao(1)
+				tempoCor = false
+				await get_tree().create_timer(0.5).timeout
+				tempoCor = true
 				
 			await get_tree().create_timer(time_to_fall).timeout
 			cair = true

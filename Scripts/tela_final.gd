@@ -1,7 +1,7 @@
 extends Control
 
 @onready var scoreValue: Label = %scoreValue
-@onready var highScoreValue: Label = %highScoreValue
+@onready var highScoreValue: Label = %highScoreValue2
 
 func _ready() -> void:
 	if DadosGlobais.highScore < DadosGlobais.score:
