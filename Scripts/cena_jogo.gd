@@ -18,7 +18,8 @@ func _process(delta):
 	#____________________________________________________________#
 	
 	if Input.is_action_just_pressed("ui_restart"):
-		get_tree().change_scene_to_file("res://Scenes/cena_jogo.tscn")
+		get_tree().change_scene_to_file("res://Scenes/cena_jogo_2.tscn")
+		DadosGlobais.startBool = false
 	
 	if Input.is_action_just_pressed("ui_cancel"):
 		get_tree().quit()

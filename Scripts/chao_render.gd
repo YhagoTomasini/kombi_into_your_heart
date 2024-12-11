@@ -1,10 +1,13 @@
 @tool
 extends Sprite2D
 
-#var animTex: AnimatedTexture
 
 @export var show_sprites: bool = false
 @export var rotate_sprites: bool = false
+
+#var animTex = texture as AnimatedTexture
+
+var animTex: AnimatedTexture
 
 var distLayers: int = 1
 
@@ -24,7 +27,7 @@ func dam_rotation(_rotation):
 func set_rotate_sprites(_rotate_sprites):
 	rotate_sprites = _rotate_sprites
 #
-func _process(delta):
+func _physics_process(delta: float) -> void:
 	if Input.is_action_just_pressed("ui_cut"):
 		distLayers += 1
 		render_sprites()
@@ -39,26 +42,31 @@ func _process(delta):
 		for sprite in get_children():
 			sprite.rotation += delta
 			
-	#if DadosGlobais.arrosarChao:
-		#print("yeyy")
-		#animTex.frames = 2
-		#await get_tree().create_timer(0.5).timeout
-		#animTex.frames = 1
-		#DadosGlobais.arrosarChao = false
-		#print("ahh")
+	if DadosGlobais.mudarCorChao == 1:
+		corChao(1)
+		
+		
+
+func corChao(nCor: int):
+	if texture is AnimatedTexture:
+		animTex = texture as AnimatedTexture
+		animTex.current_frame = nCor
+		await get_tree().create_timer(1).timeout
+		animTex.current_frame = 0
+		DadosGlobais.mudarCorChao = 0
 
 func clear_sprites():
 	for sprite in get_children():
 		sprite.queue_free()
 
 func _ready():
-	#animTex = texture as AnimatedTexture
-	#animTex.frames = 2
+	corChao(0)
+		
 	await get_tree().create_timer(0.1).timeout
 	render_sprites()
 	#dam_rotation()
 	distLayers = 1
-	
+
 func render_sprites():
 	clear_sprites()
 	for i in range(0, hframes):

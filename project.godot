@@ -11,18 +11,18 @@ config_version=5
 [application]
 
 config/name="New Game Project"
-run/main_scene="res://Scenes/cena_jogo.tscn"
+run/main_scene="res://Scenes/cena_jogo_2.tscn"
 config/features=PackedStringArray("4.3", "Forward Plus")
 config/icon="res://icon.svg"
 
 [autoload]
 
-DadosGlobais="*res://dados_globais.gd"
+DadosGlobais="*res://Scripts/dados_globais.gd"
 
 [display]
 
-window/size/viewport_width=300
-window/size/viewport_height=300
+window/size/viewport_width=320
+window/size/viewport_height=320
 window/stretch/mode="canvas_items"
 
 [input]

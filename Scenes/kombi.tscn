@@ -33,6 +33,7 @@ randomness = 0.1
 
 [node name="Sprite2D" parent="." instance=ExtResource("1_owjbu")]
 position = Vector2(0, 1)
+rotate_sprites = null
 
 [node name="Area2D" type="Area2D" parent="."]
 collision_layer = 4
@@ -45,6 +46,7 @@ shape = SubResource("CapsuleShape2D_3vbe7")
 shape = SubResource("CapsuleShape2D_3vbe7")
 
 [node name="Camera2D" type="Camera2D" parent="."]
+enabled = false
 process_callback = 0
 position_smoothing_enabled = true
 rotation_smoothing_enabled = true

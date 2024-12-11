@@ -11,6 +11,8 @@ var gravidade = 200
 
 var cair: bool = false
 var scale_factor = 1
+
+
 	
 func _process(delta):
 	if cair:
@@ -23,17 +25,19 @@ func _process(delta):
 
 func istanceDeath():
 	var deathCo = cenaDeath.instantiate()
+	deathCo.instanciado = true
 	deathCo.position = pInicial
 	get_parent().add_child(deathCo) 
 
 func _on_body_entered(body: Node2D) -> void:
-	if body.name == "Kombi":
-		print("colidiu carro")
-		await get_tree().create_timer(time_to_fall).timeout
-		cair = true
-		z_index = 0
-		await get_tree().create_timer(time_to_fall/2).timeout
-		istanceDeath()
+	if DadosGlobais.startBool:
+		if body.name == "Kombi":
+			print("colidiu carro")
+			await get_tree().create_timer(time_to_fall).timeout
+			cair = true
+			z_index = 0
+			await get_tree().create_timer(time_to_fall/2).timeout
+			istanceDeath()
 
 #func _on_body_exited(body: Node2D) -> void:
 	#if body.name == "Kombi":
