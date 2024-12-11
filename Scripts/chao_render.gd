@@ -42,8 +42,8 @@ func _physics_process(delta: float) -> void:
 		for sprite in get_children():
 			sprite.rotation += delta
 			
-	if DadosGlobais.mudarCorChao == 1:
-		corChao(1)
+	#if DadosGlobais.mudarCorChao == 1:
+		#corChao(1)
 		
 		
 
