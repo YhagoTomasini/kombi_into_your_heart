@@ -3,7 +3,25 @@ extends Control
 @onready var scoreValue: Label = %scoreValue
 @onready var highScoreValue: Label = %highScoreValue2
 
+@onready var aud = $AudioRose
+
+@onready var audB1 = $VBoxContainer2/boxBotoes/replay/AudioB1
+@onready var audB2 = $VBoxContainer2/boxBotoes/menu/AudioB2
+
+func fadeIn():
+	var maxVol = 0.0
+	var temp = 1.0
+	var step = 0.1
+	
+	for i in range(int(temp/step)):
+		aud.volume_db = lerp(aud.volume_db, maxVol, step/temp)
+		await get_tree().create_timer(step).timeout
+		
 func _ready() -> void:
+	aud.volume_db = -40
+	aud.play()
+	fadeIn()
+	
 	if DadosGlobais.highScore < DadosGlobais.score:
 		DadosGlobais.highScore = DadosGlobais.score
 		
@@ -37,3 +55,10 @@ func _on_menu_pressed() -> void:
 	DadosGlobais.score = 0
 	DadosGlobais.startBool = false
 	DadosGlobais.tempGlobal = true
+
+
+func _on_replay_mouse_entered() -> void:
+	audB1.play()
+	
+func _on_menu_mouse_entered() -> void:
+	audB2.play()

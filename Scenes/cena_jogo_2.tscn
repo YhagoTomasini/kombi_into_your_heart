@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=4 uid="uid://11rm113dsd4x"]
+[gd_scene load_steps=14 format=4 uid="uid://11rm113dsd4x"]
 
 [ext_resource type="PackedScene" uid="uid://c4j8i1uxrchrm" path="res://Scenes/kombi.tscn" id="1_nyyis"]
 [ext_resource type="Script" path="res://Scripts/cena_jogo.gd" id="1_x16vc"]
@@ -6,6 +6,7 @@
 [ext_resource type="PackedScene" uid="uid://c1mweoidayudn" path="res://Scenes/hearts.tscn" id="3_gcvl5"]
 [ext_resource type="PackedScene" uid="uid://cddua5bnmehrd" path="res://Scenes/deathCollider.tscn" id="5_872sb"]
 [ext_resource type="Texture2D" uid="uid://bndmkckd1qn3w" path="res://Images/Fundo1.png" id="6_rc4wf"]
+[ext_resource type="AudioStream" uid="uid://bx6owwhumjuvm" path="res://Sons/KIYH-GregTheme.wav" id="7_j8kjp"]
 
 [sub_resource type="TileSetScenesCollectionSource" id="TileSetScenesCollectionSource_5plw1"]
 scenes/1/scene = ExtResource("2_pqulc")
@@ -77,3 +78,7 @@ offset_top = 4.0
 offset_right = 45.0
 offset_bottom = 27.0
 text = "0"
+
+[node name="AudioGreg" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("7_j8kjp")
+volume_db = -2.0

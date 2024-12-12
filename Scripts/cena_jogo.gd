@@ -5,7 +5,21 @@ extends Node2D
 @onready var scoreValue: Label = %ScoreValue
 @onready var highScoreValue: Label = %HighScoreValue
 
+@onready  var audGreg = $AudioGreg
 
+func _ready() -> void:
+	audGreg.volume_db = -40
+	audGreg.play()
+	fadeIn()
+	
+func fadeIn():
+	var maxVol = 0.0
+	var temp = 2.0
+	var step = 0.1
+	
+	for i in range(int(temp/step)):
+		audGreg.volume_db = lerp(audGreg.volume_db, maxVol, step/temp)
+		await get_tree().create_timer(step).timeout
 
 func _process(delta):
 	scoreValue.text = str(DadosGlobais.score)

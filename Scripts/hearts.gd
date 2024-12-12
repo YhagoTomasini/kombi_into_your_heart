@@ -29,20 +29,21 @@ func _ready() -> void:
 		istanceHeart()
 		queue_free()
 		
-func _on_body_entered(body: Node2D) -> void:
-	if body.name == "Kombi":
-		print("Vida extra")
-		DadosGlobais.score += 1
-		
-		if !DadosGlobais.mudarCorChao:
-			DadosGlobais.souma = true
-			DadosGlobais.mudarCorChao = true
-			
-			
-		if !DadosGlobais.startBool:
-			DadosGlobais.startBool = true
-		istanceHeart()
-		queue_free()
+#func _on_body_entered(body: Node2D) -> void:
+	#if body.name == "Kombi":
+		#print("Vida extra")
+		#body.playHeart()
+		#DadosGlobais.score += 1
+		#
+		#if !DadosGlobais.mudarCorChao:
+			#DadosGlobais.souma = true
+			#DadosGlobais.mudarCorChao = true
+			#
+			#
+		#if !DadosGlobais.startBool:
+			#DadosGlobais.startBool = true
+		#istanceHeart()
+		#queue_free()
 
 func istanceHeart():
 	var heart = cenaHeart.instantiate()
@@ -55,9 +56,21 @@ func istanceHeart():
 func normalaize16(position: Vector2, grid: int = 16) -> Vector2:
 	return Vector2(round(position.x/grid)*grid, round(position.y/grid)*grid)
 
-#func _on_area_entered(area: Area2D) -> void:
-	#noChao = true
-	#print("cahoTrue")
+func _on_area_entered(area: Area2D) -> void:
+	if area.name == "AreaKombi":
+		print("Vida extra")
+		area.playHeart()
+		DadosGlobais.score += 1
+		
+		if !DadosGlobais.mudarCorChao:
+			DadosGlobais.souma = true
+			DadosGlobais.mudarCorChao = true
+			
+			
+		if !DadosGlobais.startBool:
+			DadosGlobais.startBool = true
+		istanceHeart()
+		queue_free()
 	
 	
 	

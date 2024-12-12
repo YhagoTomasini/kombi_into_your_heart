@@ -1,10 +1,13 @@
-[gd_scene load_steps=12 format=3 uid="uid://cjpv8dke20qa0"]
+[gd_scene load_steps=15 format=3 uid="uid://cjpv8dke20qa0"]
 
 [ext_resource type="Script" path="res://Scripts/tela_inicial.gd" id="1_t4qa8"]
 [ext_resource type="Texture2D" uid="uid://bndmkckd1qn3w" path="res://Images/Fundo1.png" id="1_ur4c6"]
 [ext_resource type="FontFile" uid="uid://bhxjr7kst83bx" path="res://fonts/SaoTorpes.otf" id="1_yunu7"]
 [ext_resource type="PackedScene" uid="uid://xgp087rsvcxd" path="res://Scenes/kombi_render.tscn" id="2_2bds0"]
 [ext_resource type="FontFile" uid="uid://bdkx4uomftex0" path="res://fonts/Orbit-Regular.ttf" id="2_vhpyw"]
+[ext_resource type="AudioStream" uid="uid://oe2xdgcsdpn5" path="res://Sons/buttonSFx1.wav" id="5_kgbfw"]
+[ext_resource type="AudioStream" uid="uid://hpd68ot4lay0" path="res://Sons/KIYH-RoseTheme.wav" id="6_f3h5w"]
+[ext_resource type="AudioStream" uid="uid://dbpblojo0kuor" path="res://Sons/buttonSFx2.wav" id="6_safe0"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_3w7t3"]
 line_spacing = 0.0
@@ -111,6 +114,11 @@ theme_override_fonts/font = ExtResource("2_vhpyw")
 text = "Play"
 flat = true
 
+[node name="AudioB1" type="AudioStreamPlayer2D" parent="VBoxContainer2/boxbotoes/play"]
+position = Vector2(-136, -200)
+stream = ExtResource("5_kgbfw")
+volume_db = -1.0
+
 [node name="quit" type="Button" parent="VBoxContainer2/boxbotoes"]
 layout_mode = 2
 size_flags_horizontal = 4
@@ -126,6 +134,11 @@ theme_override_fonts/font = ExtResource("2_vhpyw")
 text = "Quit"
 flat = true
 icon_alignment = 1
+
+[node name="AudioB2" type="AudioStreamPlayer2D" parent="VBoxContainer2/boxbotoes/quit"]
+position = Vector2(-136, -236)
+stream = ExtResource("6_safe0")
+volume_db = -1.0
 
 [node name="Sprite2D" parent="." instance=ExtResource("2_2bds0")]
 position = Vector2(160, 104)
@@ -163,5 +176,10 @@ label_settings = SubResource("LabelSettings_mvhmu")
 horizontal_alignment = 1
 vertical_alignment = 1
 
+[node name="AudioRose" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("6_f3h5w")
+
+[connection signal="mouse_entered" from="VBoxContainer2/boxbotoes/play" to="." method="_on_play_mouse_entered"]
 [connection signal="pressed" from="VBoxContainer2/boxbotoes/play" to="." method="_on_play_pressed"]
+[connection signal="mouse_entered" from="VBoxContainer2/boxbotoes/quit" to="." method="_on_quit_mouse_entered"]
 [connection signal="pressed" from="VBoxContainer2/boxbotoes/quit" to="." method="_on_quit_pressed"]

@@ -1,10 +1,13 @@
-[gd_scene load_steps=15 format=3 uid="uid://dc1oje2hor0ya"]
+[gd_scene load_steps=18 format=3 uid="uid://dc1oje2hor0ya"]
 
 [ext_resource type="Script" path="res://Scripts/tela_final.gd" id="1_471ee"]
 [ext_resource type="Texture2D" uid="uid://bndmkckd1qn3w" path="res://Images/Fundo1.png" id="2_mqg12"]
 [ext_resource type="FontFile" uid="uid://bhxjr7kst83bx" path="res://fonts/SaoTorpes.otf" id="3_tq4lb"]
 [ext_resource type="FontFile" uid="uid://bdkx4uomftex0" path="res://fonts/Orbit-Regular.ttf" id="4_1eavq"]
+[ext_resource type="AudioStream" uid="uid://oe2xdgcsdpn5" path="res://Sons/buttonSFx1.wav" id="5_5p7mw"]
 [ext_resource type="PackedScene" uid="uid://b4wt0wcds2g60" path="res://Scenes/heart_render.tscn" id="5_60yaj"]
+[ext_resource type="AudioStream" uid="uid://dbpblojo0kuor" path="res://Sons/buttonSFx2.wav" id="6_n21oi"]
+[ext_resource type="AudioStream" uid="uid://hpd68ot4lay0" path="res://Sons/KIYH-RoseTheme.wav" id="8_0vpqj"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_lo4f2"]
 line_spacing = 0.0
@@ -166,6 +169,11 @@ theme_override_fonts/font = ExtResource("4_1eavq")
 text = "Replay"
 flat = true
 
+[node name="AudioB1" type="AudioStreamPlayer2D" parent="VBoxContainer2/boxBotoes/replay"]
+position = Vector2(-83, -242)
+stream = ExtResource("5_5p7mw")
+volume_db = -1.0
+
 [node name="HBoxContainer2" type="HBoxContainer" parent="VBoxContainer2/boxBotoes"]
 custom_minimum_size = Vector2(32, 12)
 layout_mode = 2
@@ -185,6 +193,11 @@ theme_override_fonts/font = ExtResource("4_1eavq")
 text = "Menu"
 flat = true
 icon_alignment = 1
+
+[node name="AudioB2" type="AudioStreamPlayer2D" parent="VBoxContainer2/boxBotoes/menu"]
+position = Vector2(-189, -242)
+stream = ExtResource("6_n21oi")
+volume_db = -1.0
 
 [node name="Heart_render" parent="." instance=ExtResource("5_60yaj")]
 position = Vector2(160, 120)
@@ -219,5 +232,10 @@ label_settings = SubResource("LabelSettings_sopdx")
 horizontal_alignment = 1
 vertical_alignment = 1
 
+[node name="AudioRose" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("8_0vpqj")
+
+[connection signal="mouse_entered" from="VBoxContainer2/boxBotoes/replay" to="." method="_on_replay_mouse_entered"]
 [connection signal="pressed" from="VBoxContainer2/boxBotoes/replay" to="." method="_on_replay_pressed"]
+[connection signal="mouse_entered" from="VBoxContainer2/boxBotoes/menu" to="." method="_on_menu_mouse_entered"]
 [connection signal="pressed" from="VBoxContainer2/boxBotoes/menu" to="." method="_on_menu_pressed"]

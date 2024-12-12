@@ -17,7 +17,16 @@ var time_to_fall = 0.3
 
 var input = Vector2.ZERO
 
+@onready var honk = $AudioHonk
+@onready var engine = $AudioKombi
+
+func _ready() -> void:
+	engine.play()
+
 func _physics_process(delta):
+	if Input.is_action_just_pressed("ui_accept"):
+		honk.play()
+		
 	if grounded:
 		input.x = Input.get_action_strength("ui_right") - Input.get_action_strength("ui_left")
 		input.y = Input.get_action_strength("ui_down") - Input.get_action_strength("ui_up")
@@ -44,12 +53,14 @@ func _physics_process(delta):
 	move_and_slide()
 	
 	if input != Vector2.ZERO:
+		engine.pitch_scale = 2
 		$GPUParticles2D.rotation = (velocity.angle()-deg_to_rad(-90))
 		if grounded:
 			$GPUParticles2D.emitting = true
 		else:
 			$GPUParticles2D.emitting = false
 	else:
+		engine.pitch_scale = 1
 		$GPUParticles2D.emitting = false
 	
 func saiuChao():
