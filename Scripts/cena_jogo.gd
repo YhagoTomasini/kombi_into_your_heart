@@ -17,7 +17,8 @@ func _process(delta):
 		get_tree().change_scene_to_file("res://Scenes/cena_jogo_2.tscn")
 		DadosGlobais.startBool = false
 		DadosGlobais.score = 0
-	
+		DadosGlobais.tempGlobal = true
+		
 	if Input.is_action_just_pressed("ui_cancel"):
 		get_tree().quit()
 	

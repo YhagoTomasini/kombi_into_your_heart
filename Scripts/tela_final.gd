@@ -29,8 +29,11 @@ func _on_replay_pressed() -> void:
 	get_tree().change_scene_to_file("res://Scenes/cena_jogo_2.tscn")
 	DadosGlobais.score = 0
 	DadosGlobais.startBool = false
+	DadosGlobais.tempGlobal = true
+
 
 func _on_menu_pressed() -> void:
 	get_tree().change_scene_to_file("res://Scenes/TelaInicial.tscn")
 	DadosGlobais.score = 0
 	DadosGlobais.startBool = false
+	DadosGlobais.tempGlobal = true

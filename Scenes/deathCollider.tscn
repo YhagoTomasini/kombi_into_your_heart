@@ -5,12 +5,12 @@
 [sub_resource type="CanvasTexture" id="CanvasTexture_0jyvx"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_7fx7u"]
-radius = 5.0
+radius = 6.0
 
 [node name="Chao" type="Area2D"]
 z_index = 2
 position = Vector2(-8, -8)
-collision_layer = 2
+collision_layer = 4
 collision_mask = 6
 script = ExtResource("1_lkafq")
 

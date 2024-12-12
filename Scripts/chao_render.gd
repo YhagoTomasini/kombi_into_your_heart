@@ -48,10 +48,13 @@ func _physics_process(delta: float) -> void:
 
 func corChao(nCor: int):
 	if texture is AnimatedTexture:
+		#if DadosGlobais.tempGlobal:
+			#DadosGlobais.tempGlobal = false
 		animTex = texture as AnimatedTexture
 		animTex.current_frame = nCor
 		await get_tree().create_timer(0.5).timeout
 		animTex.current_frame = 0
+			#DadosGlobais.tempGlobal = true
 		#DadosGlobais.mudarCorChao = false
 
 func clear_sprites():

@@ -10,14 +10,18 @@ var telaCheia: bool = false
 
 var souma: bool = false
 
+@onready var tempGlobal: bool = true
+
 func _process(delta: float) -> void:
 	if souma and mudarCorChao:
 		mudasaporra()
+		await get_tree().create_timer(0.1).timeout
 		souma = false
 		
 func mudasaporra():
 	await get_tree().create_timer(0.5).timeout
-	DadosGlobais.mudarCorChao = false
+	mudarCorChao = false
+	tempGlobal = true
 		
 func morte():
 	await get_tree().create_timer(1).timeout

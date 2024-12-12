@@ -5,8 +5,8 @@
 
 [sub_resource type="CanvasTexture" id="CanvasTexture_0jyvx"]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_lypnj"]
-size = Vector2(16, 16)
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_yj62u"]
+size = Vector2(16, 15)
 
 [node name="Chao" type="Area2D"]
 visibility_layer = 2
@@ -25,7 +25,8 @@ texture = SubResource("CanvasTexture_0jyvx")
 position = Vector2(0, 0)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-shape = SubResource("RectangleShape2D_lypnj")
+position = Vector2(0, 0.5)
+shape = SubResource("RectangleShape2D_yj62u")
 
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]
 [connection signal="body_exited" from="." to="." method="_on_body_exited"]

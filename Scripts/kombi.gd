@@ -22,8 +22,8 @@ func _physics_process(delta):
 		input.x = Input.get_action_strength("ui_right") - Input.get_action_strength("ui_left")
 		input.y = Input.get_action_strength("ui_down") - Input.get_action_strength("ui_up")
 		
-		if Input.get_action_strength("ui_paste"):
-			grounded = false
+		#if Input.get_action_strength("ui_paste"):
+			#grounded = false
 			
 	elif !grounded:
 		print("caindo ahhh")
