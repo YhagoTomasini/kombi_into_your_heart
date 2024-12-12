@@ -61,7 +61,7 @@ rotation_smoothing_enabled = true
 
 [node name="AudioKombi" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("5_yd2fy")
-volume_db = -2.0
+volume_db = -4.0
 
 [node name="AudioHonk" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("5_kg8v4")
