@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=4 uid="uid://11rm113dsd4x"]
+[gd_scene load_steps=18 format=4 uid="uid://11rm113dsd4x"]
 
 [ext_resource type="PackedScene" uid="uid://c4j8i1uxrchrm" path="res://Scenes/kombi.tscn" id="1_nyyis"]
 [ext_resource type="Script" path="res://Scripts/cena_jogo.gd" id="1_x16vc"]
@@ -7,6 +7,8 @@
 [ext_resource type="PackedScene" uid="uid://cddua5bnmehrd" path="res://Scenes/deathCollider.tscn" id="5_872sb"]
 [ext_resource type="Texture2D" uid="uid://bndmkckd1qn3w" path="res://Images/Fundo1.png" id="6_rc4wf"]
 [ext_resource type="AudioStream" uid="uid://bx6owwhumjuvm" path="res://Sons/KIYH-GregTheme.wav" id="7_j8kjp"]
+[ext_resource type="FontFile" uid="uid://bdkx4uomftex0" path="res://fonts/Orbit-Regular.ttf" id="7_paw35"]
+[ext_resource type="PackedScene" uid="uid://dwpwscc50q2yg" path="res://Scenes/contador_de_fps.tscn" id="9_bd7rp"]
 
 [sub_resource type="TileSetScenesCollectionSource" id="TileSetScenesCollectionSource_5plw1"]
 scenes/1/scene = ExtResource("2_pqulc")
@@ -25,6 +27,18 @@ scenes/1/scene = ExtResource("5_872sb")
 
 [sub_resource type="TileSet" id="TileSet_e6oi7"]
 sources/0 = SubResource("TileSetScenesCollectionSource_jbqh5")
+
+[sub_resource type="LabelSettings" id="LabelSettings_0rr6d"]
+font = ExtResource("7_paw35")
+font_color = Color(0.172549, 0.486275, 0.737255, 1)
+outline_size = 8
+outline_color = Color(0.00392157, 0.0862745, 0.152941, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_eyfit"]
+font = ExtResource("7_paw35")
+font_color = Color(0.360784, 0.964706, 0.290196, 1)
+outline_size = 8
+outline_color = Color(0.00392157, 0.0862745, 0.152941, 1)
 
 [node name="CenaJogo2" type="Node2D"]
 script = ExtResource("1_x16vc")
@@ -59,26 +73,32 @@ tile_set = SubResource("TileSet_w7raq")
 tile_map_data = PackedByteArray("AAABAAkAAAAAAAAAAQAAAAQAAAAAAAAAAQAAAAUAAAAAAAAAAQAAAAYAAAAAAAAAAQAAAAcAAAAAAAAAAQAAAAgAAAAAAAAAAQABAAMAAAAAAAAAAQACAAIAAAAAAAAAAQADAAEAAAAAAAAAAQAEAAAAAAAAAAAAAQAFAAAAAAAAAAAAAQAGAAAAAAAAAAAAAQAHAAAAAAAAAAAAAQAIAAEAAAAAAAAAAQAJAAIAAAAAAAAAAQAKAAMAAAAAAAAAAQALAAEAAAAAAAAAAQAMAAAAAAAAAAAAAQANAAAAAAAAAAAAAQAOAAAAAAAAAAAAAQAPAAAAAAAAAAAAAQAQAAEAAAAAAAAAAQARAAIAAAAAAAAAAQASAAMAAAAAAAAAAQATAAQAAAAAAAAAAQATAAUAAAAAAAAAAQATAAYAAAAAAAAAAQATAAcAAAAAAAAAAQATAAgAAAAAAAAAAQASAAkAAAAAAAAAAQARAAoAAAAAAAAAAQAQAAsAAAAAAAAAAQAPAAwAAAAAAAAAAQAOAA0AAAAAAAAAAQANAA8AAAAAAAAAAQANAA4AAAAAAAAAAQAMAA8AAAAAAAAAAQALABAAAAAAAAAAAQALABEAAAAAAAAAAQAKABIAAAAAAAAAAQAJABIAAAAAAAAAAQAJABEAAAAAAAAAAQAIABAAAAAAAAAAAQAHAA8AAAAAAAAAAQAIABEAAAAAAAAAAQAGAA4AAAAAAAAAAQAGAA8AAAAAAAAAAQAFAA0AAAAAAAAAAQAFAA4AAAAAAAAAAQAEAAwAAAAAAAAAAQAEAA0AAAAAAAAAAQADAAwAAAAAAAAAAQADAAsAAAAAAAAAAQACAAoAAAAAAAAAAQACAAsAAAAAAAAAAQABAAoAAAAAAAAAAQAAAAkAAAAAAAAAAQAMABAAAAAAAAAAAQALABIAAAAAAAAAAQAOAA4AAAAAAAAAAQAPAA0AAAAAAAAAAQAQAAwAAAAAAAAAAQARAAsAAAAAAAAAAQASAAoAAAAAAAAAAQATAAkAAAAAAAAAAQATAAMAAAAAAAAAAQASAAIAAAAAAAAAAQARAAEAAAAAAAAAAQAQAAAAAAAAAAAAAQALAAAAAAAAAAAAAQAKAAIAAAAAAAAAAQAKAAEAAAAAAAAAAQAJAAEAAAAAAAAAAQAIAAAAAAAAAAAAAQADAAAAAAAAAAAAAQACAAEAAAAAAAAAAQABAAIAAAAAAAAAAQAAAAMAAAAAAAAAAQA=")
 tile_set = SubResource("TileSet_e6oi7")
 
-[node name="CanvasLayer" type="CanvasLayer" parent="."]
+[node name="HBoxContainer" type="HBoxContainer" parent="."]
+anchors_preset = 10
+anchor_right = 1.0
+offset_left = 16.0
+offset_top = 16.0
+offset_right = 304.0
+offset_bottom = 39.0
+grow_horizontal = 2
 
-[node name="ScoreValue" type="Label" parent="CanvasLayer"]
+[node name="ScoreValue" type="Label" parent="HBoxContainer"]
 unique_name_in_owner = true
 z_index = 6
-offset_left = 5.0
-offset_top = 28.0
-offset_right = 45.0
-offset_bottom = 51.0
+layout_mode = 2
 text = "0"
+label_settings = SubResource("LabelSettings_0rr6d")
 
-[node name="HighScoreValue" type="Label" parent="CanvasLayer"]
+[node name="HighScoreValue" type="Label" parent="HBoxContainer"]
 unique_name_in_owner = true
 z_index = 6
-offset_left = 5.0
-offset_top = 4.0
-offset_right = 45.0
-offset_bottom = 27.0
+layout_mode = 2
+size_flags_horizontal = 10
 text = "0"
+label_settings = SubResource("LabelSettings_eyfit")
 
 [node name="AudioGreg" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("7_j8kjp")
 volume_db = -2.0
+
+[node name="Contador De FPS" parent="." instance=ExtResource("9_bd7rp")]

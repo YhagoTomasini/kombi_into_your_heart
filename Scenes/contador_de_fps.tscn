@@ -1,0 +1,32 @@
+[gd_scene load_steps=4 format=3 uid="uid://dwpwscc50q2yg"]
+
+[ext_resource type="Script" path="res://Scripts/contador_de_fps.gd" id="1_t5rk2"]
+[ext_resource type="FontFile" uid="uid://bdkx4uomftex0" path="res://fonts/Orbit-Regular.ttf" id="2_edjas"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_b1uye"]
+font = ExtResource("2_edjas")
+font_size = 12
+font_color = Color(0.360784, 0.964706, 0.290196, 1)
+outline_size = 8
+outline_color = Color(0.00392157, 0.0862745, 0.152941, 1)
+
+[node name="Contador De FPS" type="CanvasLayer"]
+script = ExtResource("1_t5rk2")
+
+[node name="Control" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_left = 16.0
+offset_top = -32.0
+offset_right = 40.0
+offset_bottom = -16.0
+grow_vertical = 0
+
+[node name="Label" type="Label" parent="Control"]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 23.0
+theme_override_font_sizes/font_size = 1
+label_settings = SubResource("LabelSettings_b1uye")

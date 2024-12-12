@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=3 uid="uid://cjpv8dke20qa0"]
+[gd_scene load_steps=16 format=3 uid="uid://cjpv8dke20qa0"]
 
 [ext_resource type="Script" path="res://Scripts/tela_inicial.gd" id="1_t4qa8"]
 [ext_resource type="Texture2D" uid="uid://bndmkckd1qn3w" path="res://Images/Fundo1.png" id="1_ur4c6"]
@@ -8,6 +8,7 @@
 [ext_resource type="AudioStream" uid="uid://oe2xdgcsdpn5" path="res://Sons/buttonSFx1.wav" id="5_kgbfw"]
 [ext_resource type="AudioStream" uid="uid://hpd68ot4lay0" path="res://Sons/KIYH-RoseTheme.wav" id="6_f3h5w"]
 [ext_resource type="AudioStream" uid="uid://dbpblojo0kuor" path="res://Sons/buttonSFx2.wav" id="6_safe0"]
+[ext_resource type="PackedScene" uid="uid://dwpwscc50q2yg" path="res://Scenes/contador_de_fps.tscn" id="9_edtt2"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_3w7t3"]
 line_spacing = 0.0
@@ -178,6 +179,8 @@ vertical_alignment = 1
 
 [node name="AudioRose" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("6_f3h5w")
+
+[node name="Contador De FPS" parent="." instance=ExtResource("9_edtt2")]
 
 [connection signal="mouse_entered" from="VBoxContainer2/boxbotoes/play" to="." method="_on_play_mouse_entered"]
 [connection signal="pressed" from="VBoxContainer2/boxbotoes/play" to="." method="_on_play_pressed"]

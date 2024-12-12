@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" path="res://Scripts/kombi.gd" id="1_8i674"]
 [ext_resource type="PackedScene" uid="uid://xgp087rsvcxd" path="res://Scenes/kombi_render.tscn" id="1_owjbu"]
-[ext_resource type="Script" path="res://Scenes/audHeart.gd" id="3_yxiks"]
+[ext_resource type="Script" path="res://Scripts/audHeart.gd" id="3_yxiks"]
 [ext_resource type="AudioStream" uid="uid://ws1bmvmgdwga" path="res://Sons/heartSFx.wav" id="4_qnbtb"]
 [ext_resource type="AudioStream" uid="uid://c60dj3m0x81nd" path="res://Sons/car-horn-beep-beep-two-beeps-honk-honk-6188.mp3" id="5_kg8v4"]
 [ext_resource type="AudioStream" uid="uid://cko3smyk2ddp7" path="res://Sons/motor-loop-83480.mp3" id="5_yd2fy"]
