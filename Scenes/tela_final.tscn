@@ -173,7 +173,7 @@ flat = true
 [node name="AudioB1" type="AudioStreamPlayer2D" parent="VBoxContainer2/boxBotoes/replay"]
 position = Vector2(-83, -242)
 stream = ExtResource("5_5p7mw")
-volume_db = -1.0
+volume_db = -2.0
 
 [node name="HBoxContainer2" type="HBoxContainer" parent="VBoxContainer2/boxBotoes"]
 custom_minimum_size = Vector2(32, 12)
@@ -198,7 +198,7 @@ icon_alignment = 1
 [node name="AudioB2" type="AudioStreamPlayer2D" parent="VBoxContainer2/boxBotoes/menu"]
 position = Vector2(-189, -242)
 stream = ExtResource("6_n21oi")
-volume_db = -1.0
+volume_db = -2.0
 
 [node name="Heart_render" parent="." instance=ExtResource("5_60yaj")]
 position = Vector2(160, 120)

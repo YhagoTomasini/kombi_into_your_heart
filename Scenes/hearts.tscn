@@ -1,11 +1,10 @@
-[gd_scene load_steps=5 format=3 uid="uid://c1mweoidayudn"]
+[gd_scene load_steps=4 format=3 uid="uid://c1mweoidayudn"]
 
 [ext_resource type="Script" path="res://Scripts/hearts.gd" id="1_eod1u"]
 [ext_resource type="PackedScene" uid="uid://b4wt0wcds2g60" path="res://Scenes/heart_render.tscn" id="2_5aymm"]
-[ext_resource type="Texture2D" uid="uid://d0qfsuhvhrrlm" path="res://Images/heart.png" id="3_e72lx"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_7cnqm"]
-radius = 10.0499
+radius = 12.0
 
 [node name="Hearts" type="Area2D"]
 visibility_layer = 16
@@ -17,14 +16,6 @@ script = ExtResource("1_eod1u")
 [node name="Heart_render" parent="." instance=ExtResource("2_5aymm")]
 position = Vector2(0, 6)
 show_sprites = false
-
-[node name="Sprite2D" type="Sprite2D" parent="."]
-visible = false
-light_mask = 8
-visibility_layer = 8
-position = Vector2(9, 0)
-texture = ExtResource("3_e72lx")
-hframes = 13
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(0, -1)

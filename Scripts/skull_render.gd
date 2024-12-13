@@ -21,15 +21,15 @@ func set_rotate_sprites(_rotate_sprites):
 	rotate_sprites = _rotate_sprites
 
 func _process(delta):
-	#if Input.is_action_just_pressed("ui_cut"):
-		#distLayers += 1
-		#render_sprites()
-	#elif Input.is_action_just_pressed("ui_copy"):
-		#distLayers -= 1
-		#render_sprites()
-	#elif Input.is_action_just_pressed("ui_undo"):
-		#distLayers = 1
-		#render_sprites()
+	if Input.is_action_just_pressed("ui_cut"):
+		distLayers += 1
+		render_sprites()
+	elif Input.is_action_just_pressed("ui_copy"):
+		distLayers -= 1
+		render_sprites()
+	elif Input.is_action_just_pressed("ui_undo"):
+		distLayers = 1
+		render_sprites()
 		
 	if rotate_sprites:
 		for sprite in get_children():

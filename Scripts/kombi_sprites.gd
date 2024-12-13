@@ -21,10 +21,10 @@ func set_rotate_sprites(_rotate_sprites):
 	rotate_sprites = _rotate_sprites
 
 func _process(delta):
-	if Input.is_action_just_pressed("ui_cut"):
+	if Input.is_action_just_pressed("ui_copy"):
 		distLayers += 1
 		render_sprites()
-	elif Input.is_action_just_pressed("ui_copy"):
+	elif Input.is_action_just_pressed("ui_cut"):
 		distLayers -= 1
 		render_sprites()
 	elif Input.is_action_just_pressed("ui_undo"):
